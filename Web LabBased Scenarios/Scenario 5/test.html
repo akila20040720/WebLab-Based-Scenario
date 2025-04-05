@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Customization</title>
+  <style>
+
+    .topic {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="topic">Customization</h1>
+  <div>
+    <label><input type="radio" value="red" name="pattern" onclick="changeBackground()"> Red</label>
+    <label><input type="radio" value="yellow" name="pattern" onclick="changeBackground()"> Yellow</label>
+    <label><input type="radio" value="green" name="pattern" onclick="changeBackground()"> Green</label>
+  </div>
+
+  <script>
+    function changeBackground() {
+      const selected = document.querySelector('input[name="pattern"]:checked');
+      if (selected) {
+        document.body.style.backgroundColor = selected.value;
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <div id="wrapper">
+    <form action="#">
+        <h1 class="topic">Create Your Profile</h1>
+        <hr>
+        <p class="intro">Akila Wijerama</p>
+        <p class="intro">w2121346</p>
+        <p class="intro">Computer Science</p>
+        <div id="user">
+        <fieldset>
+            <legend class="topic" >User Details</legend>
+            <p class="user-details">Enter your name:  <input type="text" class="details" id="uName" placeholder="w123456"></p>
+            <div class="error" id="nameError">❌ you haven't entered a seven character string</div>
+            <div class="error" id="WnameError">❌username must be 7 charaters long and starting with w!</div>
+            <div class="valid" id="nameValid">✔ valid username</div>
+            <br>
+
+            <p class="user-details">Enter your Age:  <input type="number" class="details" id="uAge" placeholder="min value 18"></p>
+            <div class="error" id="ageError">age must be between 18-70</div>
+            <div class="valid" id="ageValid">✔ valid age</div>
+            <br>
+
+            <label for="user-details">Select the level of your studies: </label>
+            <select name="user-details" id="study" onclick="changeStudy(this)">
+            <option value="Foundation" name="foundation">Foundation</option>
+            <option value="Undergaduate" name="undergaduate">Undergaduate</option>
+            <option value="Postgraduate" name="postgraduate">Postgraduate</option>
+            </select>
+            <br>
+
+            <p class="user-details">Select an Avatar: 
+                <br>
+                <input type="radio" name="avatar" id="girl" value="OpenSvg.org_Chibi Girl Cartoon Character.svg" onclick="changeImage(this)" checked>
+                <label for="girl">
+                    <img src="OpenSvg.org_Chibi Girl Cartoon Character.svg" alt="girl_img" class="circle">
+                </label>
+
+                <input type="radio" name="avatar" id="black-boy" value="28457881_4ot2_o64y_220519.svg" onclick="changeImage(this)">
+                <label for="black-boy">
+                    <img src="28457881_4ot2_o64y_220519.svg" alt="black-boy" class="circle">
+                </label>
+
+                <input type="radio" name="avatar" id="white-boy" value="OpenSvg.org_Boy Thumb Up, Kid Character.svg" onclick="changeImage(this)">
+                <label for="white-boy">
+                    <img src="OpenSvg.org_Boy Thumb Up, Kid Character.svg" alt="white-boy" class="circle">
+                </label>
+            </p>
+            
+        </fieldset>
+        </div>
+        <button type="submit" onclick="return printed()" id="submit">Submit Profile</button>
+    </form>
+    
+    <br>
+    
+
+    <div id="your-profile">
+        <h1 class="topic">Your Profile</h1>
+        <hr>
+        <div class="profile-container">
+            <img src="#" alt="selected-img" id="selected-img">
+            <div class="profile-details">
+                <p id="selected-uName">[Your Name]</p>
+                <p>Age: <span id="selected-uAge">[Age]</span></p>
+                <p>Study: <span id="studyField">[Your Study]</span></p>
+            </div>
+        </div>        
+        
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

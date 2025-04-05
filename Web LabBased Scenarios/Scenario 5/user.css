@@ -1,0 +1,126 @@
+
+.wrapper{
+  background-color: skyblue;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 750px;
+  width: 100%;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+}
+#your-profile {
+  width: 500px; /* Adjust width as needed */
+  margin: 20px auto; /* Centers the box horizontally */
+  padding: 20px;
+  border: 1px solid #ccc; /* Border around the box */
+  border-radius: 25px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background */
+  
+}
+
+
+/* .profile{
+  text-align: center;
+  margin-left: 250px;
+ 
+  
+} */
+
+.topic{
+  text-align: center;
+}
+.intro {
+  text-align: center;
+}
+fieldset{
+  border-radius: 25px;
+  border-width: 1px;
+  border-color: black;
+}
+button{
+  display: block;
+  margin: 0 auto;
+  border-radius: 25px;
+}
+
+
+
+.error{
+  color: red;
+  font-size: small;
+  display: none;
+}
+.valid{
+  color:#4CAF50;
+  font-size: small;
+  display: none;
+}
+
+
+/* Style for the avatar container */
+.user-details {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Hide the radio buttons */
+.user-details input[type="radio"] {
+  display: none;
+}
+
+/* Style for the avatar images */
+.user-details img.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ddd; /* Default border color */
+  cursor: pointer;
+  
+}
+
+/* Hover effect */
+.user-details img.circle:hover {
+  border-color: #aaa;
+  
+}
+
+/* Selected avatar style */
+.user-details input[type="radio"]:checked + label img.circle {
+  border-color: #4CAF50; /* Green color for selected */
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+/* Optional: Style the labels for better spacing */
+.user-details label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#selected-img{
+  display: inline-flex;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ddd; /* Default border color */
+  cursor: pointer;
+}
+
+.profile-container {
+  display: inline-flex;
+  align-items: center; /* Align items vertically */
+  gap: 85px; /* Space between image and text */
+}
+
+.profile-details {
+  
+  gap: 10px; /* Space between name and age */
+  font-size: 18px; /* Adjust font size */
+  font-weight: bold;
+}
+
