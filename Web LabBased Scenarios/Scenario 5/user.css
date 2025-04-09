@@ -22,12 +22,11 @@
 }
 
 
-/* .profile{
-  text-align: center;
-  margin-left: 250px;
+.container{
+  background-color: lightblue;
+  border-radius: 25px;
  
-  
-} */
+}
 
 .topic{
   text-align: center;
@@ -47,19 +46,6 @@ button{
 }
 
 
-
-.error{
-  color: red;
-  font-size: small;
-  display: none;
-}
-.valid{
-  color:#4CAF50;
-  font-size: small;
-  display: none;
-}
-
-
 /* Style for the avatar container */
 .user-details {
   display: flex;
@@ -73,27 +59,19 @@ button{
 }
 
 /* Style for the avatar images */
-.user-details img.circle {
+.circle {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #ddd; /* Default border color */
   cursor: pointer;
   
 }
 
-/* Hover effect */
-.user-details img.circle:hover {
-  border-color: #aaa;
-  
-}
 
-/* Selected avatar style */
-.user-details input[type="radio"]:checked + label img.circle {
-  border-color: #4CAF50; /* Green color for selected */
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-}
+
+
+
 
 /* Optional: Style the labels for better spacing */
 .user-details label {
@@ -122,5 +100,9 @@ button{
   gap: 10px; /* Space between name and age */
   font-size: 18px; /* Adjust font size */
   font-weight: bold;
+}
+
+.selected{
+  border-color: #4CAF50;
 }
 

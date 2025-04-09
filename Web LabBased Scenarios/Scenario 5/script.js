@@ -1,193 +1,173 @@
-document.getElementById("uName").addEventListener("input", function () {
-    ValidationSubmit();
-});
+
+let selectedDis = " ";
+let selectedSub = "";
+let selectedProf = "";
+let verified = false;
+let ageErr = document.getElementById("ageError");
+let getage = document.getElementById("uAge");
+let getSubscription = document.getElementById("subscription");
+let setAge = document.getElementById("selected-uAge");
+let getDiscount = document.getElementById("discounted");
+let getnotDiscount = document.getElementById("notDiscounted");
+let FinalDiscount = document.getElementById("selected-uSub");
+let getName = document.getElementById("uName");
+let setName = document.getElementById("selected-uName");
+
+
+
+
+function validationAge(uAge){
+   
+    if(uAge<18){
+        ageErr.textContent = "*you are not eligible for discount";
+        ageErr.style.color ="red";
+
+        return false;
+    }
+    else if(uAge >= 18){
+        ageErr.textContent = " \u2714 Valid Nickname";
+        ageErr.style.color = "green";
+        return true;
+    }
+}
 
 document.getElementById("uAge").addEventListener("input" , function(){
-    ValidationSubmitAge();
+     let uAge = this.value;
+     validationAge(uAge);
+
+});
+
+function subscription(){
+    FinalDiscount.innerHTML = selectedSub + selectedDis;
+}
+
+document.getElementById("submit").addEventListener("click", function(){
+    let uAge = parseInt(document.getElementById("uAge").value);
+    
+    if(!uAge){
+        ageErr.textContent ="please fill this field";
+        ageErr.style.color ="red";
+    }
+    
+    else if(uAge<18){
+        ageErr.textContent = "*you are not eligible for discount";
+        ageErr.style.color ="red";
+        return false;
+    }
+
+    else if(!verified){
+        alert("*You aren't verified")
+    }
+    else{
+        ageErr.textContent = " \u2714 Valid Nickname";
+        ageErr.style.color = "green";
+        subscription();
+        setName.innerHTML = getName.value;
+        setAge.innerHTML = getage.value;
+        return true;
+    }
+   
+    
+    
+});
+
+getDiscount.addEventListener("input" , function(){
+    selectedDis = getDiscount.value;
+});
+
+getnotDiscount.addEventListener("input" , function(){
+    
+    selectedDis = getnotDiscount.value;
 });
 
 
-function ValidationName() {
-    const name = document.getElementById("uName");
-    const nameError = document.getElementById("nameError");
-    const WnameError= document.getElementById("WnameError");
-    let nameValid = document.getElementById("nameValid");
-    const display_Uname = document.getElementById("selected-uName");
-    
-    if(name.value.charAt(0)=="w"){
-        if(name.value.length ==7){
-            nameError.style.display ="none";
-            WnameError.style.display ="none";
-            nameValid.style.display="block";
-            display_Uname.textContent = name.value;
+getSubscription.addEventListener("input" , function(){
+    selectedSub = getSubscription.value;
+});
 
-        }
-        else{
-            nameError.style.display="block";
-            display_Uname.textContent="[Your-Name]"
-        }
+function removeProfile(){
+    let person = document.getElementsByClassName("class");
+    for(let i=0; i<person.length; i++){
+        person[i].classList.remove("selected");
+    }
+}
+
+document.getElementById("char1").addEventListener("click" , function(){
+    
+    removeProfile();
+    let getChar1 = document.getElementById("char1");
+    getChar1.classList.add("selected");
+    selectedProf = getChar1.src;
+    document.getElementById("selected-img").src = selectedProf;
+
+});
+
+document.getElementById("char2").addEventListener("click" , function(){
+    removeProfile();
+    let getChar2 = document.getElementById("char2");
+    getChar2.classList.add("selected");
+    selectedProf = getChar2.src;
+    document.getElementById("selected-img").src = selectedProf;
+
+});
+
+document.getElementById("char3").addEventListener("click" , function(){
+    removeProfile();
+    let getChar3 = document.getElementById("char3");
+    getChar3.classList.add("selected");
+    selectedProf = getChar3.src;
+    document.getElementById("selected-img").src = selectedProf;
+
+});
+
+
+// Verification 
+
+function Verify(){
+    let getRandom1 = Math.floor(Math.random() * 9);
+    let getRandom2 = Math.floor(Math.random() * 9);
+    const total = getRandom1 + getRandom2;
+    const answer = prompt("What's the " + getRandom1 + " + " + getRandom2);
+    if(answer == total){
+        alert("✔ Succesfully Verified");
     }
     else{
-        WnameError.style.display = "block";
-        
+        alert("*Invalid answer try again");
     }
-    
-    // if(name.value.length == 7 && name.value.charAt(0)=="w") {
-    //     nameError.style.display = "none";
-    //     display_Uname.textContent = name.value;
-    //     WnameError.style.display ="block"
-    //     return true;
-    // } else {
-    //     nameError.style.display = "block";
-    //     nameValid.style.display = "none";
-    //     display_Uname.textContent = "[Your Name]";
-    //     return false;
-    // }
+
 }
 
-
-function ValidationSubmit() {
-    const name = document.getElementById("uName");
-    const nameError = document.getElementById("nameError");
-    const WnameError= document.getElementById("WnameError");
-    let nameValid = document.getElementById("nameValid");
+document.getElementById("VerifyBtn").addEventListener("click" , function(){
+    Verify();
+    verified=true;
     
-    
-    if(name.value.charAt(0)=="w"){
-        if(name.value.length ==7){
-            nameError.style.display ="none";
-            WnameError.style.display ="none";
-            nameValid.style.display="block";
-            
+});
 
-        }
-        else{
-            nameError.style.display="block";
-            
-        }
-    }
-    else{
-        WnameError.style.display = "block";
-        
-    }
-    
-    // if(name.value.length == 7 && name.value.charAt(0)=="w") {
-    //     nameError.style.display = "none";
-    //     display_Uname.textContent = name.value;
-    //     WnameError.style.display ="block"
-    //     return true;
-    // } else {
-    //     nameError.style.display = "block";
-    //     nameValid.style.display = "none";
-    //     display_Uname.textContent = "[Your Name]";
-    //     return false;
-    // }
-}
-
-function ValidationSubmitAge(){
-    const age = document.getElementById("uAge");
-    const ageError = document.getElementById("ageError");
-    const ageValid = document.getElementById("ageValid");
-
-    if(age.value >=19 && age.value<=25){
-        ageError.style.display = "none";
-        ageValid.style.display="block";       
-        return true;
-    }
-    else{
-        ageError.style.display="block";
-        ageValid.style.display="none";
-        return false;
+function Removecustomization(){
+    let custom = document.getElementsByClassName("pattern");
+    for(let a=0; a<custom.length; a++){
+        custom[a].classList.remove("col");
     }
 }
 
+document.getElementById("col1").addEventListener("click", function(){
+    Removecustomization();
+    let col1 = document.getElementById("col1");
+    col1.classList.add("col");
+    document.getElementById("wrapper").style.backgroundColor = col1.value;
+});
 
+document.getElementById("col2").addEventListener("click", function(){
+    Removecustomization();
+    let col1 = document.getElementById("col2");
+    col1.classList.add("col");
+    document.getElementById("wrapper").style.backgroundColor = col2.value;
+});
 
+document.getElementById("col3").addEventListener("click", function(){
+    Removecustomization();
+    let col1 = document.getElementById("col3");
+    col1.classList.add("col");
+    document.getElementById("wrapper").style.backgroundColor = col3.value;
+});
 
-
-
-function ValidationAge(){
-    const age = document.getElementById("uAge");
-    const ageError = document.getElementById("ageError");
-    const display_Uage = document.getElementById("selected-uAge");
-
-    if(age.value >=19 && age.value<=25){
-        ageError.style.display = "none";
-        display_Uage.textContent = age.value;
-        return true;
-    }
-    else{
-        ageError.style.display="block";
-        display_Uage.textContent = "[Age]";
-        return false;
-    }
-}
-function changeImage(selectedRadio){
-    
-    document.getElementById("selected-img").src = selectedRadio.value;
-    
-}
-
-
-function emptyValidation(){
-    let EmName = document.getElementById("uName");
-    let EmAge = document.getElementById("uAge");
-    if(EmName.value=="" || EmAge.value==""){
-        alert("Please fill in all required fields before submitting");
-    }
-}
-
-function random(){
-    let submitBTN = document.getElementById("submit");
-    let num1 = Math.floor(Math.random()*9);
-    let num2 =Math.floor(Math.random()*9);
-    const userInput = prompt("What's the " + num1 + " + " + num2 + "?");
-    const correct = num1 + num2;
-    if(userInput==correct){
-        confirm("Succesfully Verified");
-        submitBTN.disabled= false;
-    }
-    else{
-        alert("Invalid!")
-        submitBTN.disabled =true;
-    }
-}
-
-function changeBackground() {
-    const selected = document.querySelector('input[name="pattern"]:checked');
-    if (selected) {
-      document.body.style.backgroundColor = selected.value;
-    }
-  }
-
-function printed(){
-    ValidationName();
-    ValidationAge();
-    emptyValidation();
-    document.getElementById("uName").addEventListener("input", function () {
-        ValidationName();
-    });
-    document.getElementById("uAge").addEventListener("input" , function(){
-        ValidationAge();
-    });
-
-    let selectedRadio = document.querySelector('input[name="avatar"]:checked');
-    
-    if (selectedRadio) {
-        document.getElementById("selected-img").src = selectedRadio.value;
-    } 
-    
-    let selectedMem= document.querySelector('input[name="discount"]:checked');
-    if(selectedMem){
-        document.getElementById("selected-uSub").innerText =selectedMem.value;
-        
-    }
-    
-}
-
-
-
-
-
-    
-   

@@ -8,27 +8,29 @@
 </head>
 <body>
     <div class="wrapper" id="wrapper">
-    <form action="#">
+    
         <h1 class="topic">Create Your Profile</h1>
         <hr>
+        <div class="container">
         <p class="intro">Akila Wijerama</p>
         <p class="intro">w2121346</p>
         <p class="intro">Computer Science</p>
+        </div>
         <div id="user">
         <fieldset>
             <legend class="topic" >User Details</legend>
-            <p class="user-details">Enter your name:  <input type="text" class="details" id="uName"></p>
-            <div class="error" id="nameError">❌ you haven't entered a seven character string</div>
-            <div class="error" id="WnameError">❌username must be 7 charaters long and starting with w!</div>
-            <div class="valid" id="nameValid">✔ valid username</div>
-            <br>
+            <label>
+            <p class="user-details">Enter your name:  <input type="text" class="details" id="uName" value="Oliver Brown"></p>
+            </label>
+            
+           <label>
             <p class="user-details">Enter your Age:  <input type="number" class="details" id="uAge"></p>
-            <div class="error" id="ageError">❌you are not eligible for discount</div>
-            <div class="valid" id="ageValid">✔ You are eligible to discount</div>
-            <br>
-
-            <p class="user-details" id="studyStatus">Study Status: <input type="text" class="details" id="uStatus"></p>
-            <br>
+            <span class="error" id="ageError"></span>
+           </label>
+           
+           <label>
+            <p class="user-details" id="studyStatus">Enter Nickname: <input type="text" class="details" id="uNickname"></p>
+           </label>
 
             <label for="subscription">Subscriptions:</label>
             <select name="subscription" id="subscription">
@@ -37,39 +39,34 @@
                 <option value="Premium $19.99 per/month">Premium $19.99 per/month</option>
                 
             </select>
-            <br> <br>
+           
+            
+           
+            <p>Anual Membership discount:</p>
+           
+            <label>
+            <p ><input type="radio" value="(after 20% discount)" name="discount" id="discounted">Annual Membership apply 20% discount</p>
+            </label>
+            <label>
+            <p><input type="radio" value="(without discount)" name="discount" id="notDiscounted"> Without Discount</p>
+            </label>
 
-            <label for="discounts">Annual membership discount: </label>
-            <p><input type="radio" value="Standard $7.99 per/month(after 20% discount)" name="discount" checked>Annual Membership apply 20% discount</p>
-            
-            <p><input type="radio" value="Standard $9.99 per/month(without discount)" name="discount">Without discount</p>
-            
             <p class="user-details">Select an Avatar: 
                 <br>
-                <input type="radio" name="avatar" id="girl" value="OpenSvg.org_Chibi Girl Cartoon Character.svg"  checked>
-                <label for="girl">
-                    <img src="OpenSvg.org_Chibi Girl Cartoon Character.svg" alt="girl_img" class="circle">
-                </label>
+                <img src="OpenSvg.org_Chibi Girl Cartoon Character.svg" alt="girl" class="circle" id="char1">
+                <img src="OpenSvg.org_Boy Thumb Up, Kid Character.svg" alt="white-boy" class="circle" id="char2">
+                <img src="28457881_4ot2_o64y_220519.svg" alt="black-boy" class="circle" id="char3">
 
-                <input type="radio" name="avatar" id="black-boy" value="28457881_4ot2_o64y_220519.svg" >
-                <label for="black-boy">
-                    <img src="28457881_4ot2_o64y_220519.svg" alt="black-boy" class="circle">
-                </label>
-
-                <input type="radio" name="avatar" id="white-boy" value="OpenSvg.org_Boy Thumb Up, Kid Character.svg" >
-                <label for="white-boy">
-                    <img src="OpenSvg.org_Boy Thumb Up, Kid Character.svg" alt="white-boy" class="circle">
-                </label>
             </p>
         </fieldset>
         <fieldset>
             <legend class="topic">Verify you are Human</legend>
-            <button onclick="random()">Click to Verify</button>
+            <button id="VerifyBtn" >Click to Verify</button>
         </fieldset>
         </div>
         <br>
-        <button type="submit" onclick="printed()" id="submit" disabled>Submit Profile</button>
-    </form>
+        <button id="submit" >Submit Profile</button>
+    
     
    
     <br>
@@ -79,11 +76,11 @@
         <h1 class="topic">Your Profile</h1>
         <hr>
         <div class="profile-container">
-            <img src="#" alt="selected-img" id="selected-img">
+            <img src="" alt="selected-img" id="selected-img">
             <div class="profile-details">
-                <p><span id="selected-uName">[Your Name]</span></p>
-                <p>Age: <span id="selected-uAge">[Age]</span></p>
-                <p>Subscription: <span id="selected-uSub">[Your subcription choice]</span></p>
+                <span id="selected-uName">[Your Name]</span><br>
+                Age: <span id="selected-uAge">[Age]</span><br>
+                Subscription: <span id="selected-uSub">[Your subcription choice]</span>
             </div>
         </div>        
         
@@ -93,9 +90,9 @@
     <div id="your-profile">
         <h1 class="topic">Customization</h1>
         <div>
-            <input type="radio" value="red" name="pattern" onclick="changeBackground()"> 
-           <input type="radio" value="yellow" name="pattern" onclick="changeBackground()"> 
-            <input type="radio" value="black" name="pattern" onclick="changeBackground()"> 
+            <input type="radio" value="red" name="pattern" class="pattern" id="col1"> 
+           <input type="radio" value="yellow" name="pattern" class="pattern" id="col2"> 
+            <input type="radio" value="lightgreen" name="pattern" class="pattern"id="col3"> 
           </div>
     </div>
     <script src="script.js"></script>
